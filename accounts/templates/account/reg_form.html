@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+  {% block head %}
+  <title>Register</title>
+  {% endblock %}
+
+  {% block body %}
+  <div class="container">
+    <h1>Register</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+{% endfor %}
+<button class='btn  btn-mdb-color' type="submit">Submit</button>
+</form>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

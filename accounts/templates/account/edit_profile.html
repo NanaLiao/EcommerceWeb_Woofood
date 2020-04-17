@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>Edit Profile</title>
+      {% endblock %}
+  </head>
+  <body>
+
+    {% block body %}
+    <div class="container">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class='btn  btn-mdb-color' type='submit'>Submit</button>
+      </form>
+    </div>
+
+
+    {% endblock %}
+
+
+
+  </body>
+</html>

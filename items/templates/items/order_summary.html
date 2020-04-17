@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load price %}
+
+{% block style%}
+
+img{
+  margin-left:20px;
+  width:40px;
+}
+
+.total{
+  font-size: 1.5rem;
+  font-weight:bold;
+}
+
+h2{
+  margin-top:5rem;
+}
+
+{% endblock%}
+
+{% block body %}
+<div class="container">
+
+  {% if order.items.all %}
+  <table class="table">
+    <h2>Order Summary</h2>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">price</th>
+        <th scope="col">quantity</th>
+        <th scope="col">Sub_Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for orderitem in order.items.all %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td><a href="{{orderitem.item.get_absolute_url}}" style="color:blue">{{orderitem.item.title}}  <img src="{{orderitem.item.photo.url}}" alt="" '></a></td>
+        {% if orderitem.item.discount_price != null %}
+        <td>{{orderitem.item.discount_price}}</td>
+        {% else %}
+        <td>{{orderitem.item.price}}</td>
+        {% endif %}
+        <td><a href="{{orderitem.item.reduce_orderitem_quantity_url}}"><i class="fas fa-minus-circle" style="color:pink"></i></a> {{orderitem.quantity}} <a href="{{orderitem.item.add_orderitem_quantity_url}}"><i class="fas fa-plus-circle"
+              style="color:pink"></i></a> <a href="{{orderitem.item.remove_from_cart_url}}"><i class="far fa-trash-alt"></i></a></td>
+        <td>{{orderitem.sub_total}}</td>
+      </tr>
+      {%endfor%}
+      <tr >
+        <td colspan="4" class='total'>Total:</td>
+        <td class='total'>{{order.total_price|floatformat:2}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="{% url 'items:check_out' %}"><button class = 'btn btn-primary' type="submit">Check out</button></a>
+
+  {% else %}
+  <div class="container">
+    <p>Your cart is empty!</p>
+    <a href="{% url 'items:home' %}"><button class = 'btn btn-primary' type="submit">Continue Shopping</button></a>
+
+  </div>
+  {% endif%}
+</div>
+
+
+{% endblock %}

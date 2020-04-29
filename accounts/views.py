@@ -25,10 +25,9 @@ def register(request):
                                     password=form.cleaned_data['password1'],
                                     )
             login(request, new_user)
-
             return redirect('items:home')
         else:
-            messages.info(request, "Enter the same password.")
+            messages.info(request, "Please confirm the password.")
             return redirect('/account/register')
 
     else:

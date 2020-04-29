@@ -4,10 +4,10 @@
 <title>Login</title>
 {% endblock head %}
 
-
 {% block body %}
 <div class="container">
   <h1>Login</h1>
+
   {% if form.errors %}
   <div class="alert alert-warning alert-dismissible alert-{{ message.tags }} fade show" role="alert">
     <p>Your username and password didn't match. Please try again.</p>
@@ -15,7 +15,6 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
   {% endif %}
 
   {% if next %}
@@ -49,8 +48,6 @@
 </div>
 
 {% endblock body%}
-
-
 
 </body>
 

@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 class HomeView(ListView):
     model = Item
@@ -49,7 +50,6 @@ class MilkView(ListView):
 
 
 class ItemDetailView(DetailView):
-
     model = Item
     template_name='items/product.html'
 
@@ -63,7 +63,7 @@ def order_summary(request):
 
 
 def add_to_cart(request,slug):
-    item = get_object_or_404(Item, slug=slug)
+    item = get_object_or_404(Item, slug=slug)  #check if the item exists
     order_item, created = OrderItem.objects.get_or_create(
         item=item,
         user=request.user,

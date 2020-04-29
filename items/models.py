@@ -3,9 +3,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from django.contrib import messages
 
-
-
-
 CATEGORY_CHOICES = (
     ('F', 'Fruit'),
     ('V', 'Vegetables'),
@@ -14,13 +11,10 @@ CATEGORY_CHOICES = (
     ('G','Grocery'),
 )
 
-
 LABEL_CHOICES = (
     ('D', 'Discount'),
     ('O', 'Out of stock'),
-
 )
-
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
@@ -49,9 +43,6 @@ class Item(models.Model):
 
     def add_orderitem_quantity_url(self):
         return reverse('items:add_orderitem_quantity',kwargs={'slug':self.slug})
-
-
-
 
 
 class OrderItem(models.Model):

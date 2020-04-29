@@ -1,19 +1,13 @@
 {% extends 'base.html' %}
 
-
 {% block head %}
 <title>{{object_list.0.get_category_display}}</title>
-
 {% endblock  %}
-
-
-
 
 {% block style %}
 
 div.height{
-
-  height:100%
+height:100%
 }
 
 {% endblock  %}
@@ -30,8 +24,6 @@ div.height{
         <div class="row wow fadeIn">
 
           {% for item in object_list %}
-
-
 
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4">
@@ -55,7 +47,6 @@ div.height{
                   <h5>{{item.title}}</h5>
                 </a>
 
-
                 <h4 class="font-weight-bold blue-text">
 
                   {% if item.discount_price %}
@@ -70,16 +61,12 @@ div.height{
 
               </div>
               <!--Card content-->
-
             </div>
             <!--Card-->
-
           </div>
           <!--Grid column-->
 
-
           {% endfor%}
-
         </div>
       </section>
     </div>
@@ -115,11 +102,7 @@ div.height{
     </nav>
     <!--Pagination-->
 
-
   </div>
 </main>
-
-
-
 
 {% endblock body %}

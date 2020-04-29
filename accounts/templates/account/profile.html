@@ -1,38 +1,32 @@
 {% extends 'base.html' %}
 
-    {% block head %}
-    <meta charset="utf-8">
-    <title>Profile</title>
-      {% endblock %}
+{% block head %}
+<meta charset="utf-8">
+<title>Profile</title>
+{% endblock %}
 
-  {% block style %}
-  span{
-    font-weight:bold;
-    color:black;
-  }
+{% block style %}
+span{
+font-weight:bold;
+color:black;
+}
+{% endblock %}
 
+<body>
 
+  {% block body %}
+  <div class="container">
+    <p><span>Username: </span> {{user}}</p>
+    <p><span>First name: </span> {{user.first_name}}</p>
+    <p><span>Last name: </span> {{user.last_name}}</p>
+    <p><span>Email: </span> {{user.email}}</p>
+    <p><span>City: </span> {{user.userprofile.city}}</p>
+    <p><span>phone: </span> {{user.userprofile.phone}}</p>
+    <p><span>description: </span> {{user.userprofile.description}}</p>
+    <p><span>Website: </span> <a href="http://www.google.com">{{user.userprofile.website}}</a></p>
+  </div>
   {% endblock %}
 
+</body>
 
-  <body>
-
-    {% block body %}
-    <div class="container">
-      <p><span>Username: </span> {{user}}</p>
-      <p><span>First name: </span> {{user.first_name}}</p>
-      <p><span>Last name: </span> {{user.last_name}}</p>
-      <p><span>Email: </span> {{user.email}}</p>
-      <p><span>City: </span> {{user.userprofile.city}}</p>
-      <p><span>phone: </span> {{user.userprofile.phone}}</p>
-      <p><span>description: </span> {{user.userprofile.description}}</p>
-      <p><span>Website: </span> <a href="http://www.google.com">{{user.userprofile.website}}</a></p>
-    </div>
-
-
-    {% endblock %}
-
-
-
-  </body>
 </html>

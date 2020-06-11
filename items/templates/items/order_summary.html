@@ -3,10 +3,10 @@
 
 {% block style%}
 
-img{
+<!-- img{
 margin-left:20px;
 width:40px;
-}
+} -->
 
 .total{
 font-size: 1.5rem;
@@ -38,7 +38,7 @@ margin-top:5rem;
       {% for orderitem in order.items.all %}
       <tr>
         <th scope="row">{{forloop.counter}}</th>
-        <td><a href="{{orderitem.item.get_absolute_url}}" style="color:blue">{{orderitem.item.title}} <img src="{{orderitem.item.photo.url}}" alt="" '></a></td>
+        <td><a href="{{orderitem.item.get_absolute_url}}" style="color:blue">{{orderitem.item.title}} <img style="margin-left:20px;width:40px" src="{{orderitem.item.photo.url}}" alt="" ></a></td>
         {% if orderitem.item.discount_price != null %}
         <td>{{orderitem.item.discount_price}}</td>
         {% else %}
